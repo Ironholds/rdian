@@ -18,14 +18,37 @@
 #'@param to Another date to limit by. If set, the search will only cover data written before this date.
 #'Optional (NULL) by default. Can be set in conjunction with \code{from}.
 #'
+#'@param section
+#'
+#'@param reference
+#'
+#'@param reference_type
+#'
+#'@param tags
+#'
+#'@param rights
+#'
+#'@param ids
+#'
+#'@param production_office
+#'
+#'@param page
+#'
+#'@param page_size
+#'
+#'@param fields
+#'
+#'@param ... further arguments to pass to httr's \code{GET}.
+#'
 #'@export
+#'@importFrom curl curl_escape
 guardian_content <- function(api_key, query, from = NULL, to = NULL, section = NULL,
-                             reference = NULL, reference_type = NULL, tag = NULL,
+                             reference = NULL, reference_type = NULL, tags = NULL,
                              rights = NULL, ids = NULL, production_office = NULL, page = NULL,
                              page_size = 50, fields = NULL, ...){
   
   # Construct basic path
-  path <- paste0("/search?q=", query, "&api-key=", api_key)
+  path <- paste0("search?q=", curl::curl_escape(query), "&api-key=", api_key)
   
   # Check dates
   if(!is.null(from)){
@@ -45,8 +68,8 @@ guardian_content <- function(api_key, query, from = NULL, to = NULL, section = N
   if(!is.null(reference_type)){
     path <- paste0(path, "&reference-type=", reference_type)
   }
-  if(!is.null(tag)){
-    path <- paste0(path, "&tag=", tag)
+  if(!is.null(tags)){
+    path <- paste0(path, "&tag=", tags)
   }
   if(!is.null(rights)){
     path <- paste0(path, "&rights=", rights)
@@ -70,6 +93,6 @@ guardian_content <- function(api_key, query, from = NULL, to = NULL, section = N
   if(!is.null(fields)){
     path <- paste0(path, "&show-fields=", merge_multis(fields))
   }
-  
-  return(guardian_query(path))
+
+  return(guardian_query(path, ...)[[1]])
 }

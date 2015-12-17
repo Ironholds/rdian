@@ -5,9 +5,9 @@
 \title{Search Guardian Content}
 \usage{
 guardian_content(api_key, query, from = NULL, to = NULL, section = NULL,
-  reference = NULL, reference_type = NULL, tag = NULL, rights = NULL,
-  ids = NULL, production_office = NULL, page = NULL, page_size = NULL,
-  ...)
+  reference = NULL, reference_type = NULL, tags = NULL, rights = NULL,
+  ids = NULL, production_office = NULL, page = NULL, page_size = 50,
+  fields = NULL, ...)
 }
 \arguments{
 \item{api_key}{A key to the Guardian API, which can be obtained
@@ -22,6 +22,28 @@ Optional (NULL) by default. Can be set in conjunction with \code{to}.}
 
 \item{to}{Another date to limit by. If set, the search will only cover data written before this date.
 Optional (NULL) by default. Can be set in conjunction with \code{from}.}
+
+\item{section}{}
+
+\item{reference}{}
+
+\item{reference_type}{}
+
+\item{tags}{}
+
+\item{rights}{}
+
+\item{ids}{}
+
+\item{production_office}{}
+
+\item{page}{}
+
+\item{page_size}{}
+
+\item{fields}{}
+
+\item{...}{further arguments to pass to httr's \code{GET}.}
 }
 \description{
 \code{guardian_content} lets you directly search

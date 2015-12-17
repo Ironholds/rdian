@@ -1,9 +1,9 @@
 #'@importFrom httr stop_for_status GET content user_agent
 guardian_query <- function(path, ...){
-  url <- paste0("http://content.guardianapis.com/", path)
-  result <- httr::GET(url, httr::user_agent("rdian - https://github.com/Ironholds/rdian"))
+  url <- paste0("https://content.guardianapis.com/", path)
+  result <- httr::GET(url)
   httr::stop_for_status(result)
-  return(content(result))
+  return(httr::content(result))
 }
 
 date_convert <- function(date){
