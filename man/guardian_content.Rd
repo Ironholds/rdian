@@ -7,7 +7,7 @@
 guardian_content(api_key, query, from = NULL, to = NULL, section = NULL,
   reference = NULL, reference_type = NULL, tags = NULL, rights = NULL,
   ids = NULL, production_office = NULL, page = NULL, page_size = 50,
-  fields = NULL, ...)
+  fields = NULL, collapse = TRUE, ...)
 }
 \arguments{
 \item{api_key}{A key to the Guardian API, which can be obtained
@@ -47,6 +47,8 @@ or \code{co.uk}, or...). Does not accept boolean operators.}
 \item{page_size}{}
 
 \item{fields}{}
+
+\item{collapse}{whether to collapse the actual content into a data.frame. Set to TRUE by default.}
 
 \item{...}{further arguments to pass to httr's \code{GET}.}
 }

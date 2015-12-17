@@ -43,6 +43,8 @@
 #'
 #'@param fields
 #'
+#'@param collapse whether to collapse the actual content into a data.frame. Set to TRUE by default.
+#'
 #'@param ... further arguments to pass to httr's \code{GET}.
 #'
 #'@export
@@ -50,7 +52,7 @@
 guardian_content <- function(api_key, query, from = NULL, to = NULL, section = NULL,
                              reference = NULL, reference_type = NULL, tags = NULL,
                              rights = NULL, ids = NULL, production_office = NULL, page = NULL,
-                             page_size = 50, fields = NULL, ...){
+                             page_size = 50, fields = NULL, collapse = TRUE, ...){
   
   # Construct basic path
   path <- paste0("search?q=", curl::curl_escape(query), "&api-key=", api_key)
@@ -99,5 +101,9 @@ guardian_content <- function(api_key, query, from = NULL, to = NULL, section = N
     path <- paste0(path, "&show-fields=", merge_multis(fields))
   }
 
-  return(guardian_query(path, ...)[[1]])
+  retrieved_data <- guardian_query(path, ...)[[1]]
+  if(collapse){
+    retrieved_data$results <- collapse_content(retrieved_data)
+  }
+  return(retrieved_data)
 }
