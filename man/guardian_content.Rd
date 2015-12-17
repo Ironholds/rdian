@@ -23,17 +23,22 @@ Optional (NULL) by default. Can be set in conjunction with \code{to}.}
 \item{to}{Another date to limit by. If set, the search will only cover data written before this date.
 Optional (NULL) by default. Can be set in conjunction with \code{from}.}
 
-\item{section}{}
+\item{section}{the section, or sections, of \emph{The Guardian} that you want to limit the search to. Multiple
+sections may be concatenated together using boolean operators; see \code{\link{rdian_and}} and \code{\link{rdian_or}}.}
 
-\item{reference}{}
+\item{reference}{the references to limit the search to; only articles that include those references (and meet other
+conditions) will be returned. Also accepts boolean operators.}
 
-\item{reference_type}{}
+\item{reference_type}{the type of reference (such as \code{isbn}). Also accepts boolean operators.}
 
-\item{tags}{}
+\item{tags}{the tags to limit the search to; only articles that contain these tags will be returned. Also accepts
+boolean operators.}
 
-\item{rights}{}
+\item{rights}{limit a search to content with these rights (syndicatable content, for example). Options are
+\code{syndicatable} and \code{subscription-database}. Does not accept boolean operators.}
 
-\item{ids}{}
+\item{ids}{limit a search to content with these IDs, an ID being the standard URL fragment after \code{guardian.com} (
+or \code{co.uk}, or...). Does not accept boolean operators.}
 
 \item{production_office}{}
 

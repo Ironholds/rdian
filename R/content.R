@@ -18,17 +18,22 @@
 #'@param to Another date to limit by. If set, the search will only cover data written before this date.
 #'Optional (NULL) by default. Can be set in conjunction with \code{from}.
 #'
-#'@param section
+#'@param section the section, or sections, of \emph{The Guardian} that you want to limit the search to. Multiple
+#'sections may be concatenated together using boolean operators; see \code{\link{rdian_and}} and \code{\link{rdian_or}}.
 #'
-#'@param reference
+#'@param reference the references to limit the search to; only articles that include those references (and meet other
+#'conditions) will be returned. Also accepts boolean operators.
 #'
-#'@param reference_type
+#'@param reference_type the type of reference (such as \code{isbn}). Also accepts boolean operators.
 #'
-#'@param tags
+#'@param tags the tags to limit the search to; only articles that contain these tags will be returned. Also accepts
+#'boolean operators.
 #'
-#'@param rights
+#'@param rights limit a search to content with these rights (syndicatable content, for example). Options are
+#'\code{syndicatable} and \code{subscription-database}. Does not accept boolean operators.
 #'
-#'@param ids
+#'@param ids limit a search to content with these IDs, an ID being the standard URL fragment after \code{guardian.com} (
+#'or \code{co.uk}, or...). Does not accept boolean operators.
 #'
 #'@param production_office
 #'
