@@ -1,3 +1,19 @@
+# Collapsing the values of content calls.
+collapse_content <- function(api_response){
+  
+  response_names <- names(api_response$results[[1]])
+  results <- do.call("rbind", lapply(api_response$results, function(x){
+    unlisted_data <- unname(unlist(x))
+    return(as.data.frame(matrix(unlisted_data, nrow = 1, ncol = length(unlisted_data)), stringsAsFactors = FALSE))
+  }))
+  names(results) <- response_names
+  if("webPublicationDate" %in% response_names){
+    results$webPublicationDate <- as.POSIXct(gsub(x = results$webPublicationDate, pattern = "(T|%Z)",
+                                                  replacement = ""), tz = "UTC")
+  }
+  return(results)
+}
+
 
 #'@title Search Guardian Content
 #'@description \code{guardian_content} lets you directly search
@@ -35,13 +51,15 @@
 #'@param ids limit a search to content with these IDs, an ID being the standard URL fragment after \code{guardian.com} (
 #'or \code{co.uk}, or...). Does not accept boolean operators.
 #'
-#'@param production_office
+#'@param production_office the production office(s) to limit to, such as "aus". Accepts boolean operators.
 #'
-#'@param page
+#'@param page a particular page of results to return. Useful when returning multiple sets of data with the same query;
+#'you can repeat the query, incrementing the value in \code{page}.
 #'
-#'@param page_size
+#'@param page_size the maximum number of items to return; anywhere between 1 and 50. Set to 50 by default.
 #'
-#'@param fields
+#'@param fields additional fields to include in the returned data (when available). Possible values
+#'(which should appear in a vector) appear \href{http://open-platform.theguardian.com/documentation/search}{here}.
 #'
 #'@param collapse whether to collapse the actual content into a data.frame. Set to TRUE by default.
 #'
@@ -55,7 +73,7 @@ guardian_content <- function(api_key, query, from = NULL, to = NULL, section = N
                              page_size = 50, fields = NULL, collapse = TRUE, ...){
   
   # Construct basic path
-  path <- paste0("search?q=", curl::curl_escape(query), "&api-key=", api_key)
+  path <- paste0("search?q=", curl::curl_escape(query), "&api-key=", api_key, "&page-size=", page_size)
   
   # Check dates
   if(!is.null(from)){
@@ -92,10 +110,7 @@ guardian_content <- function(api_key, query, from = NULL, to = NULL, section = N
   if(!is.null(page)){
     path <- paste0(path, "&page=", page)
   }
-  if(!is.null(page_size)){
-    path <- paste0(path, "&page-size=", page_size)
-  }
-  
+
   # Fields
   if(!is.null(fields)){
     path <- paste0(path, "&show-fields=", merge_multis(fields))

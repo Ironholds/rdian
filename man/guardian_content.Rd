@@ -40,13 +40,15 @@ boolean operators.}
 \item{ids}{limit a search to content with these IDs, an ID being the standard URL fragment after \code{guardian.com} (
 or \code{co.uk}, or...). Does not accept boolean operators.}
 
-\item{production_office}{}
+\item{production_office}{the production office(s) to limit to, such as "aus". Accepts boolean operators.}
 
-\item{page}{}
+\item{page}{a particular page of results to return. Useful when returning multiple sets of data with the same query;
+you can repeat the query, incrementing the value in \code{page}.}
 
-\item{page_size}{}
+\item{page_size}{the maximum number of items to return; anywhere between 1 and 50. Set to 50 by default.}
 
-\item{fields}{}
+\item{fields}{additional fields to include in the returned data (when available). Possible values
+(which should appear in a vector) appear \href{http://open-platform.theguardian.com/documentation/search}{here}.}
 
 \item{collapse}{whether to collapse the actual content into a data.frame. Set to TRUE by default.}
 

@@ -18,18 +18,3 @@ date_convert <- function(date){
 merge_multis <- function(args){
   return(paste0(args, collapse = ","))
 }
-
-collapse_content <- function(api_response){
-  
-  response_names <- names(api_response$results[[1]])
-  results <- do.call("rbind", lapply(api_response$results, function(x){
-    unlisted_data <- unname(unlist(x))
-    return(as.data.frame(matrix(unlisted_data, nrow = 1, ncol = length(unlisted_data)), stringsAsFactors = FALSE))
-  }))
-  names(results) <- response_names
-  if("webPublicationDate" %in% response_names){
-    results$webPublicationDate <- as.POSIXct(gsub(x = results$webPublicationDate, pattern = "(T|%Z)",
-                                                  replacement = ""), tz = "UTC")
-  }
-  return(results)
-}
