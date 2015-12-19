@@ -17,6 +17,13 @@
 #'
 #'@param reference_type the type of reference (such as \code{isbn}). Also accepts boolean operators.
 #'
+#'@param page a particular page of results to return. Useful when returning multiple sets of data with the same query;
+#'you can repeat the query, incrementing the value in \code{page}.
+#'
+#'@param page_size the maximum number of items to return; anywhere between 1 and 50. Set to 50 by default.
+#'
+#'@param ... further arguments to pass to httr's \code{GET}.
+#'
 #'@seealso \code{\link{guardian_content}}.
 #'
 #'@examples
@@ -25,16 +32,13 @@
 #'results <- guardian_tags("test", "green")
 #'
 #'@export
-guardian_tags <- function(api_key, query, type = NULL, section = NULL, reference = NULL, reference_type = NULL,
+guardian_tags <- function(api_key, query, section = NULL, reference = NULL, reference_type = NULL,
                           page = NULL, page_size = 50, ...){
   
   # Base query
   path <- paste0("tags?q=", curl::curl_escape(query), "&api-key=", api_key, "&page-size=", page_size)
   
   # Filter types
-  if(!is.null(type)){
-    path <- paste0(path, "&type=", merge_multis(type))
-  }
   if(!is.null(section)){
     path <- paste0(path, "&section=", section)
   }

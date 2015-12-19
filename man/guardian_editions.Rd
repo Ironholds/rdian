@@ -11,6 +11,8 @@ guardian_editions(api_key, query, ...)
 \href{http://open-platform.theguardian.com/access/}{here}.}
 
 \item{query}{Your search query.}
+
+\item{...}{further arguments to pass to httr's \code{GET}.}
 }
 \description{
 \code{guardian_editions} lets you directly search
@@ -19,7 +21,7 @@ The Guardian for metadata about their editions - country-specific
 }
 \examples{
 # Simple example
-uk_edition_data <- guardian_sections("test", "UK")
+uk_edition_data <- guardian_editions("test", "uk")
 }
 \seealso{
 \code{\link{guardian_sections}} for retrieving sections, another category

@@ -35,7 +35,7 @@ collapse_content <- function(api_response){
 #'Optional (NULL) by default. Can be set in conjunction with \code{from}.
 #'
 #'@param section the section, or sections, of \emph{The Guardian} that you want to limit the search to. Multiple
-#'sections may be concatenated together using boolean operators; see \code{\link{rdian_and}} and \code{\link{rdian_or}}.
+#'sections may be concatenated together using boolean operators; see \code{\link{guardian_and}} and \code{\link{guardian_or}}.
 #'
 #'@param reference the references to limit the search to; only articles that include those references (and meet other
 #'conditions) will be returned. Also accepts boolean operators.

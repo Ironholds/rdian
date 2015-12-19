@@ -10,6 +10,8 @@
 #'phrases (\code{"sausage & mash"}); by default, searches work as an OR, looking for
 #'the presence of any one individual word in the query.
 #'
+#'@param ... further arguments to pass to httr's \code{GET}.
+#'
 #'@seealso \code{\link{guardian_tags}} for retrieving tags, another class
 #'of content metadata.
 #'

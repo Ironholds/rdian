@@ -4,9 +4,8 @@
 \alias{guardian_tags}
 \title{Search Guardian Tags}
 \usage{
-guardian_tags(api_key, query, type = NULL, section = NULL,
-  reference = NULL, reference_type = NULL, page = NULL, page_size = 50,
-  ...)
+guardian_tags(api_key, query, section = NULL, reference = NULL,
+  reference_type = NULL, page = NULL, page_size = 50, ...)
 }
 \arguments{
 \item{api_key}{A key to the Guardian API, which can be obtained
@@ -23,6 +22,13 @@ sections may be concatenated together using boolean operators; see \code{\link{r
 conditions) will be returned. Also accepts boolean operators.}
 
 \item{reference_type}{the type of reference (such as \code{isbn}). Also accepts boolean operators.}
+
+\item{page}{a particular page of results to return. Useful when returning multiple sets of data with the same query;
+you can repeat the query, incrementing the value in \code{page}.}
+
+\item{page_size}{the maximum number of items to return; anywhere between 1 and 50. Set to 50 by default.}
+
+\item{...}{further arguments to pass to httr's \code{GET}.}
 }
 \description{
 \code{guardian_tags} lets you directly search

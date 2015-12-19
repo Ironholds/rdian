@@ -8,6 +8,8 @@
 #'
 #'@param query Your search query.
 #'
+#'@param ... further arguments to pass to httr's \code{GET}.
+#'
 #'@seealso \code{\link{guardian_sections}} for retrieving sections, another category
 #'of content.
 #'

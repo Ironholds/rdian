@@ -13,6 +13,8 @@ guardian_sections(api_key, query, ...)
 \item{query}{Your search query. This can contain operators (\code{sausage AND mash}) or
 phrases (\code{"sausage & mash"}); by default, searches work as an OR, looking for
 the presence of any one individual word in the query.}
+
+\item{...}{further arguments to pass to httr's \code{GET}.}
 }
 \description{
 \code{guardian_sections} lets you directly search
