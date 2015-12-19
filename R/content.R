@@ -65,6 +65,14 @@ collapse_content <- function(api_response){
 #'
 #'@param ... further arguments to pass to httr's \code{GET}.
 #'
+#'@seealso \code{\link{guardian_tags}} to retrieve metadata about tags.
+#'
+#'@examples
+#'
+#'# Simple example
+#'
+#'result <- guardian_content("test", "debate AND economy")
+#'
 #'@export
 #'@importFrom curl curl_escape
 guardian_content <- function(api_key, query, from = NULL, to = NULL, section = NULL,

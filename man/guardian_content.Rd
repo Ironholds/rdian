@@ -60,4 +60,12 @@ The Guardian for content, including support for conditional
 searches, date-range based filtering, and section or tag
 based filtering.
 }
+\examples{
+# Simple example
+
+result <- guardian_content("test", "debate AND economy")
+}
+\seealso{
+\code{\link{guardian_tags}} to retrieve metadata about tags.
+}
 

@@ -17,6 +17,13 @@
 #'
 #'@param reference_type the type of reference (such as \code{isbn}). Also accepts boolean operators.
 #'
+#'@seealso \code{\link{guardian_content}}.
+#'
+#'@examples
+#'
+#'# Simple example
+#'results <- guardian_tags("test", "green")
+#'
 #'@export
 guardian_tags <- function(api_key, query, type = NULL, section = NULL, reference = NULL, reference_type = NULL,
                           page = NULL, page_size = 50, ...){

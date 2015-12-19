@@ -28,4 +28,11 @@ conditions) will be returned. Also accepts boolean operators.}
 \code{guardian_tags} lets you directly search
 The Guardian for their tags - metadata used to classify content.
 }
+\examples{
+# Simple example
+results <- guardian_tags("test", "green")
+}
+\seealso{
+\code{\link{guardian_content}}.
+}
 
