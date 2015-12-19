@@ -19,4 +19,12 @@ the presence of any one individual word in the query.}
 The Guardian for metadata about sections - individual categories of
 content, such as world or US news.
 }
+\examples{
+# Simple example
+business_sections <- guardian_sections("test", "business")
+}
+\seealso{
+\code{\link{guardian_tags}} for retrieving tags, another class
+of content metadata.
+}
 
