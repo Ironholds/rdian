@@ -2,14 +2,16 @@ Package: rdian
 Type: Package
 Title: Client Library for The Guardian
 Version: 0.1.0
-Date: 2015-12-08
+Date: 2016-01-01
 Author: Oliver Keyes
 Maintainer: Oliver Keyes <ironholds@gmail.com>
-Description: A client library for The Guardian (https://www.guardian.com/) and their
-             API, this package allows users to search for Guardian articles and retrieve
-             a variety of metadata about the content.
+Description: A client library for 'The Guardian' (https://www.guardian.com/) and their
+             API, this package allows users to search for Guardian articles and retrieve both
+             the content and metadata.
 License: MIT + file LICENSE
 Suggests: testthat
 Imports:
         httr,
         curl
+URL: https://github.com/ironholds/rdian
+BugReports: https://github.com/ironholds/rdian
