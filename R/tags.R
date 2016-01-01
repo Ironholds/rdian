@@ -10,7 +10,7 @@
 #'the presence of any one individual word in the query.
 #'
 #'@param section the section, or sections, of \emph{The Guardian} that you want to limit the search to. Multiple
-#'sections may be concatenated together using boolean operators; see \code{\link{rdian_and}} and \code{\link{rdian_or}}.
+#'sections may be concatenated together using boolean operators; see \code{\link{guardian_and}} and \code{\link{guardian_and}}.
 #'
 #'@param reference the references to limit the search to; only tags that include those references (and meet other
 #'conditions) will be returned. Also accepts boolean operators.

@@ -10,7 +10,7 @@ test_that("Basic tag queries can be executed", {
 
 test_that("More complex tag queries can be executed", {
   
-  results <- guardian_tags(query = "apply", section = "technology", api_key = "test")
+  results <- guardian_tags(query = "green", section = "technology", api_key = "test")
   expect_equal(length(results), 8)
   expect_equal(names(results), c("status", "userTier", "total", "startIndex", "pageSize", "currentPage", 
                                  "pages", "results"))

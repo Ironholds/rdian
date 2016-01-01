@@ -3,7 +3,11 @@ guardian_query <- function(path, ...){
   url <- paste0("https://content.guardianapis.com/", path)
   result <- httr::GET(url)
   httr::stop_for_status(result)
-  return(httr::content(result))
+  content <- httr::content(result)
+  if(length(content$response$results) == 0){
+    stop("No results found")
+  }
+  return(content)
 }
 
 date_convert <- function(date){
