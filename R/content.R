@@ -107,8 +107,8 @@ guardian_content <- function(api_key, query, from = NULL, to = NULL, section = N
   if(!is.null(rights)){
     path <- paste0(path, "&rights=", rights)
   }
-  if(!is.null(rights)){
-    path <- paste0(path, "&ids=", rights)
+  if(!is.null(ids)){
+    path <- paste0(path, "&ids=", ids)
   }
   if(!is.null(production_office)){
     path <- paste0(path, "&production-office=", production_office)
