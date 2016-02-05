@@ -70,9 +70,9 @@ collapse_content <- function(api_response){
 #'@examples
 #'
 #'# Simple example
-#'
+#'\dontrun{
 #'result <- guardian_content("test", "debate AND economy")
-#'
+#'}
 #'@export
 #'@importFrom curl curl_escape
 guardian_content <- function(api_key, query, from = NULL, to = NULL, section = NULL,

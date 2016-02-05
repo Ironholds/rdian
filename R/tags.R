@@ -27,10 +27,10 @@
 #'@seealso \code{\link{guardian_content}}.
 #'
 #'@examples
-#'
+#'\dontrun{
 #'# Simple example
 #'results <- guardian_tags("test", "green")
-#'
+#'}
 #'@export
 guardian_tags <- function(api_key, query, section = NULL, reference = NULL, reference_type = NULL,
                           page = NULL, page_size = 50, ...){

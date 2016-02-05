@@ -14,10 +14,10 @@
 #'of content.
 #'
 #'@examples
-#'
+#'\dontrun{
 #'# Simple example
 #'uk_edition_data <- guardian_editions("test", "uk")
-#'
+#'}
 #'@export
 guardian_editions <- function(api_key, query, ...){
   

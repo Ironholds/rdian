@@ -16,10 +16,10 @@
 #'of content metadata.
 #'
 #'@examples
-#'
+#'\dontrun{
 #'# Simple example
 #'business_sections <- guardian_sections("test", "business")
-#'
+#'}
 #'@export
 guardian_sections <- function(api_key, query, ...){
   
